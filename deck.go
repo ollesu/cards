@@ -20,7 +20,7 @@ func newDeck() deck {
 	return cards
 }
 
-// this is a custom method (receiver) for type 'deck'
+// this is a custom method (receiver function) for type 'deck'
 // any variable of the type deck in our app now gets access to print function
 func (d deck) print() {
 	for i, card := range d {
@@ -30,3 +30,9 @@ func (d deck) print() {
 
 // d is a working instance of / reference to the deck variable
 // in this example, slice cards is a d variable
+
+func deal(d deck, handSize int) (deck, deck) {
+	return d[:handSize], d[handSize:]
+}
+
+// (deck, deck) refers to several return value types from the function

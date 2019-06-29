@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"strings"
+)
 
 // create a new type called 'deck'
 // (which is / has a behaviour of a slice of strings)
@@ -31,8 +34,13 @@ func (d deck) print() {
 // d is a working instance of / reference to the deck variable
 // in this example, slice cards is a d variable
 
+// (deck, deck) refers to several return value types from the function
 func deal(d deck, handSize int) (deck, deck) {
 	return d[:handSize], d[handSize:]
 }
 
-// (deck, deck) refers to several return value types from the function
+func (d deck) toString() string {
+	string := []string(d)
+	return strings.Join(string, ",")
+	// type we want - type we have (d)
+}
